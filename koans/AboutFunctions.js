@@ -24,7 +24,7 @@ describe("About Functions", function() {
     
     expect(getMessage()).toBe("Outer");
     expect(overrideMessage()).toBe("Inner");
-    expect(message).toBe("Inner");
+    expect(message).toBe("Outer");
   });
 
   it("should have lexical scoping", function() {
@@ -106,6 +106,9 @@ describe("About Functions", function() {
       // An internal comment
       return a * b;
     };
-    expect(multiply.toString()).toBe('function (a, b) { return a * b; }');
+    expect(multiply.toString()).toBe('function (a, b) {
+      // An internal comment
+      return a * b;
+    }');
   });    
 });
